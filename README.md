@@ -1,30 +1,33 @@
-# Meine Todo App: NotesList
+# NotesList – Advanced Dashboard Todoist Clone
 
-Eine To-Do Liste basiernd auf den Anforderungen des [The Odin Project](https://www.theodinproject.com).
+Eine hochfunktionale, rekursive To-Do App basierend auf den Anforderungen des [The Odin Project](https://www.theodinproject.com).
 
 ## 🛠 Tech Stack
 
-![Vite](https://img.shields.io)
-![TypeScript](https://img.shields.io)
-![Sass](https://img.shields.io)
+![Vite]
+![TypeScript]
+![Sass]
 
 ## 🚀 MVP
 
-Das Ziel dieses Projekts ist eine funktionale Basis-App, die:
+Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsstrukturen durch:
 
-- Aufgaben (To-Dos) erstellen, bearbeiten und löschen kann.
-- Projekte/Kategorien unterstützt, um Aufgaben zu gruppieren.
-- Prioritäten (Niedrig, Mittel, Hoch) und Fälligkeitsdaten zuweist.
-- Daten lokal im Browser speichert (`localStorage`), damit sie beim Refresh erhalten bleiben.
+- **Rekursives Task-Modell:** Aufgaben können unendlich tief verschachtelte Unteraufgaben enthalten, wobei jede Unteraufgabe ein vollwertiges Task-Objekt mit eigenen Metadaten ist.
+- **Intelligentes Dashboard:** Dynamische Filter für "Heute", "Eingang" und eine 4-Tage "Demnächst"-Boardansicht.
+- **Projekt-Architektur:** Gruppierung von Aufgaben in Projekten, die wiederum in Abschnitte (Sections) unterteilt werden können.
+- **Meta-Daten:** Unterstützung für Prioritäten (1-4), detaillierte Beschreibungen und Kommentarsystem mit Zeitstempeln.
+- **Persistenz:** Vollständige Speicherung der verschachtelten Datenstruktur im
 
-## 📅 Roadmap / To-Dos
+## 📅 Roadmap / Meilensteine
 
 - [x] Projekt-Setup mit Vite & TypeScript
-- [x] SCSS Architektur aufsetzen (Variablen, Mixins)
-- [ ] Logik für die Aufgaben-Erstellung (Classes/Factories)
-- [ ] UI für die Projekt-Navigation
-- [ ] LocalStorage Integration
-- [ ] Drag & Drop für die Sortierung (Optional)
+- [ ] SCSS Architektur (7-1 Pattern Basis, Variablen für P1-P4)
+- [ ] **Daten-Architektur:** Definition der rekursiven Interfaces & Klassen
+- [ ] **Core Logic:** TaskManager für CRUD-Operationen & Filter-Logik
+- [ ] **Layout:** Dashboard-Shell mit Sidebar & Dynamic Content Area
+- [ ] **Views:** Implementierung der "Heute" Liste & des "Demnächst" Boards
+- [ ] **Modal-System:** Globales Management für Quick-Add, Task-Details & Suche
+- [ ] **Storage:** Serialisierung & Rehydrierung der rekursiven JSON-Daten
 
 ## 💻 Installation & Start
 
