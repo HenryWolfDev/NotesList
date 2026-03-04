@@ -18,19 +18,24 @@ Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsstrukturen durch:
 - **Meta-Daten:** Unterstützung für Prioritäten (1-4), detaillierte Beschreibungen und Kommentarsystem mit Zeitstempeln.
 - **Persistenz:** Vollständige Speicherung der verschachtelten Datenstruktur im
 
-## 📅 Roadmap / Meilensteine
-
-- [x] Projekt-Setup mit Vite & TypeScript
-- [ ] **SCSS Architektur:** (7-1 Pattern Basis, Variablen für P1-P4)
-- [ ] **Daten-Architektur:** Definition der rekursiven Interfaces & Klassen
-- [ ] **Core Logic:** TaskManager für CRUD-Operationen & Filter-Logik
-- [ ] **Layout:** Dashboard-Shell mit Sidebar & Dynamic Content Area
-- [ ] **Views:** Implementierung der "Heute" Liste & des "Demnächst" Boards
-- [ ] **Modal-System:** Globales Management für Quick-Add, Task-Details & Suche
-- [ ] **Storage:** Serialisierung & Rehydrierung der rekursiven JSON-Daten
-
 ## 💻 Installation & Start
 
 1. Repository klonen: `git clone <deine-url>`
 2. Abhängigkeiten installieren: `npm install`
 3. Entwicklungsserver starten: `npm run dev`
+
+## 📂 Ordnerstruktur
+
+`src/
+├─ core/                # (Logic/State)
+│  ├─ TodoManager.ts
+│  └─ StorageService.ts
+├─ views/               # Hauptansichten (Heute, Board, Projekt)
+│  ├─ Today/
+│  └─ Upcoming/         # Das 4-Tage-Board
+├─ components/          # UI-Elemente
+│  ├─ Modal/
+│  ├─ Sidebar/
+│  └─ TaskItem/         # Rekursives Rendering hier vorbereiten
+├─ types/               # Interfaces
+└─ styles/              # SCSS Architektur`
