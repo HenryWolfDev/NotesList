@@ -6,7 +6,7 @@ Eine hochfunktionale, rekursive To-Do App basierend auf den Anforderungen des [T
 
 [Vite](https://vite.dev/)
 [TypeScript](https://www.typescriptlang.org/)
-![Sass]
+[Sass](https://sass-lang.com/)
 
 ## 🚀 MVP
 
@@ -21,7 +21,7 @@ Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsstrukturen durch:
 ## 📅 Roadmap / Meilensteine
 
 - [x] Projekt-Setup mit Vite & TypeScript
-- [ ] SCSS Architektur (7-1 Pattern Basis, Variablen für P1-P4)
+- [ ] **SCSS Architektur:** (7-1 Pattern Basis, Variablen für P1-P4)
 - [ ] **Daten-Architektur:** Definition der rekursiven Interfaces & Klassen
 - [ ] **Core Logic:** TaskManager für CRUD-Operationen & Filter-Logik
 - [ ] **Layout:** Dashboard-Shell mit Sidebar & Dynamic Content Area
