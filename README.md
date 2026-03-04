@@ -4,8 +4,8 @@ Eine hochfunktionale, rekursive To-Do App basierend auf den Anforderungen des [T
 
 ## 🛠 Tech Stack
 
-![Vite]
-![TypeScript]
+[Vite](https://vite.dev/)
+[TypeScript](https://www.typescriptlang.org/)
 ![Sass]
 
 ## 🚀 MVP
