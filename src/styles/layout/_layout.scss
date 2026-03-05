@@ -1,0 +1,5 @@
+#app {
+  display: grid;
+  grid-template-columns: 280px 1fr; // Sidebar 280px, Rest für Content
+  height: 100vh;
+}
