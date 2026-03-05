@@ -15,6 +15,10 @@
 
 - [ ] Grid Layout bauen (Sidebar links, Content rechts)
 
+// NOTE check later again!
+
+- [x] Color variables definieren
+
 ---
 
 ## Daten Logik
