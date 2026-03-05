@@ -7,11 +7,11 @@ const App = () => {
    <aside class="sidebar">
       <div class="sidebar_header">NotesList</div>
       <nav class="sidebar_nav">
-      <button id="nav-today">Aufgabe hinzufügen</button>
-      <button id="nav-today">Suchen</button>
-      <button id="nav-inbox">Eingang</button>
-      <button id="nav-today">Heute</button>
-      <button id="nav-today">Demnächst</button>
+      <button class"sidebar-btn" id="nav-add task">Aufgabe hinzufügen</button>
+      <button class"sidebar-btn" id="nav-search">Suchen</button>
+      <button class"sidebar-btn" id="nav-inbox">Eingang</button>
+      <button class"sidebar-btn" id="nav-today">Heute</button>
+      <button class"sidebar-btn" id="nav-soon">Demnächst</button>
       </nav>
       <div class="sidebar__projects">
         <h3>Projekte</h3>

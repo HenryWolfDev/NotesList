@@ -1,7 +1,5 @@
 # 📅 Roadmap / Meilensteine
 
-## Struktur
-
 **Vite Config:**
 
 - [x] Projekt-Setup mit Vite & TypeScript
@@ -14,20 +12,23 @@
 **Layout:**
 
 - [x] Grid Layout bauen (Sidebar links, Content rechts)
-- [ ] mixin hinzufügen für display-flex
+- [x] mixin hinzufügen für display-flex
 - [x] Color variables definieren
 
 ---
 
+**Components**
+
+## SIDEBAR BTN
+
+- [ ] Interface / Types
+- [ ] Style scss
+- [ ] HTML
+
 ## Daten Logik
 
-**Interfaces schreiben:**
+**Interfaces**
 
 - [x] Task
 - [ ] Project
 - [x] Commment
-
-- [ ] **Core Logic:** TaskManager für CRUD-Operationen & Filter-Logik
-- [ ] **Views:** Implementierung der "Heute" Liste & des "Demnächst" Boards
-- [ ] **Modal-System:** Globales Management für Quick-Add, Task-Details & Suche
-- [ ] **Storage:** Serialisierung & Rehydrierung der rekursiven JSON-Daten
