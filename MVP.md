@@ -1,10 +1,10 @@
 # MVP: Advanced Todo List App
 
-# Task Modell und Modal
+## Task Modell und Modal
 
 Das Task-Objekt, ist die Zentrale Dateneinheit, das komplexe Strukturen und Metadaten enthält.
 
-## Eigenschaften eines Tasks:
+### Eigenschaften eines Tasks:
 
 - Titel:
   - Header der Aufgabe (Pflichtfeld)
@@ -29,35 +29,38 @@ Das Task-Objekt, ist die Zentrale Dateneinheit, das komplexe Strukturen und Meta
 
 ---
 
-# Sidebar (Navigation)
+## Sidebar (Navigation)
 
 Sidebar dient als Zugriff auf verschiedene Ansichten.
 
-- Aktionen:
-  - Buttons für "Aufgabe hinzufügen" und "Suche" (Öffnen Modals)
+### Aktionen:
 
-- Standard-Ansichten:
-  - Eingang:
-    - Alle Tasks ohne spezifisches Projekt
-  - Heute:
-    - Zeigt Titel "Heute", aktuelles Datum und die Anzahl der fälligen Tasks.
-  - Demnächst:
-    - 4-Tage Boardansicht
+- Buttons für "Aufgabe hinzufügen" und "Suche" (Öffnen Modals)
 
-- Projekt-Sektion:
-  - Aus und Einklappbares Menü.
-  - Plus-Icon öffnet das "Projekt hinzufügen" -Modal
-  - Standard-Projekte:
-    - Privates, Bildung, Arbeit
-  - Anzeige:
-    - Jedes Projekt zeigt:
-      - Raute (in Projektfarbe), Name, Icon (Vordefiniert), Task-Count an.
+### Standard-Ansichten:
+
+- Eingang:
+  - Alle Tasks ohne spezifisches Projekt
+- Heute:
+  - Zeigt Titel "Heute", aktuelles Datum und die Anzahl der fälligen Tasks.
+- Demnächst:
+  - 4-Tage Boardansicht
+
+### Projekt-Sektion:
+
+- Aus und Einklappbares Menü.
+- Plus-Icon öffnet das "Projekt hinzufügen" -Modal
+- Standard-Projekte:
+  - Privates, Bildung, Arbeit
+- Anzeige:
+  - Jedes Projekt zeigt:
+    - Raute (in Projektfarbe), Name, Icon (Vordefiniert), Task-Count an.
 
 ---
 
-# Dashboar-Ansichten (Views ohne Modal)
+## Dashboard-Ansichten (Views ohne Modal)
 
-## Aufgaben Heute
+### Aufgaben Heute
 
 - Liste aller Tasks, deren Datum der aktuelle Tag ist
 - Tasks werden minimmal dargestellt:
@@ -69,7 +72,7 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
   - Klick auf Task öffnet das große Task-Modal
     (mit Beschreibung, Unteraufgaben, Kommentaren usw. siehe Task-Modal)
 
-## Aufgaben Demnächst (Board-Ansicht)
+### Aufgaben Demnächst (Board-Ansicht)
 
 - Zeitraum:
   - Heute bis + 4 Tage
@@ -80,7 +83,7 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
     - Jede Spalte hat einen Button zum schnellen Hinzufügen eines Tasks
       für genau diesen Tag
 
-## Projekt-Ansicht
+### Projekt-Ansicht
 
 - Anzeige aller projektspezifischen Aufgaben.
 - Strukturierung: Unterteilung in Abschnitte
@@ -92,21 +95,19 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
 
 ---
 
-# Interaktive Komponenten (Modals)
+## Interaktive Komponenten (Modals)
 
-## Quick-Add Modal (Aufgabe hinzufügen)
+### Quick-Add Modal (Aufgabe hinzufügen)
 
 - Fokus auf Schnelligkeit
 - Eingaben: Titel (Pflicht), Beschreibung, Datum, Priorität, Kategorie/Projekt
 
-## Projekt-Modal (Projekt hinzufügen)
+### Projekt-Modal (Projekt hinzufügen)
 
 - Eingaben: Name des Projekts
 - Auswahl einer Farbe für die Raute und eines Icons aus einem vordefinierten Set
 - Neues Projekt wird in der Siderbar angezeigt
 
-## Such-Modal
+### Such-Modal
 
 - Echtzeit-Suche über alle Tasks (Titel) und Projektnamen
-
----

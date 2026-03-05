@@ -8,8 +8,8 @@
 
 **Projekt Struktur:**
 
-- [ ] Ordner für Variablen, Mixins und Komponenten anlegen (SCSS)
-- [ ] Allgemeine Ordner-Strutkur anlegen (styles, types, usw.)
+- [x] Ordner für Variablen, Mixins und Komponenten anlegen (SCSS)
+- [x] Allgemeine Ordner-Strutkur anlegen (styles, types, usw.)
 
 **Layout:**
 
@@ -25,7 +25,6 @@
 - [ ] Project
 - [ ] Commment
 
-- [ ] Project-Interface: Struktur für Namen, Farbe, Icon und Liste der Abschnitte
 - [ ] **Core Logic:** TaskManager für CRUD-Operationen & Filter-Logik
 - [ ] **Views:** Implementierung der "Heute" Liste & des "Demnächst" Boards
 - [ ] **Modal-System:** Globales Management für Quick-Add, Task-Details & Suche

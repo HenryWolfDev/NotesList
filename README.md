@@ -23,19 +23,3 @@ Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsstrukturen durch:
 1. Repository klonen: `git clone <deine-url>`
 2. Abhängigkeiten installieren: `npm install`
 3. Entwicklungsserver starten: `npm run dev`
-
-## 📂 Ordnerstruktur
-
-`src/
-├─ core/                # (Logic/State)
-│  ├─ TodoManager.ts
-│  └─ StorageService.ts
-├─ views/               # Hauptansichten (Heute, Board, Projekt)
-│  ├─ Today/
-│  └─ Upcoming/         # Das 4-Tage-Board
-├─ components/          # UI-Elemente
-│  ├─ Modal/
-│  ├─ Sidebar/
-│  └─ TaskItem/         # Rekursives Rendering hier vorbereiten
-├─ types/               # Interfaces
-└─ styles/              # SCSS Architektur`
