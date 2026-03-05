@@ -13,10 +13,8 @@
 
 **Layout:**
 
-- [ ] Grid Layout bauen (Sidebar links, Content rechts)
-
-// NOTE check later again!
-
+- [x] Grid Layout bauen (Sidebar links, Content rechts)
+- [ ] mixin hinzufügen für display-flex
 - [x] Color variables definieren
 
 ---
@@ -25,9 +23,9 @@
 
 **Interfaces schreiben:**
 
-- [ ] Task
+- [x] Task
 - [ ] Project
-- [ ] Commment
+- [x] Commment
 
 - [ ] **Core Logic:** TaskManager für CRUD-Operationen & Filter-Logik
 - [ ] **Views:** Implementierung der "Heute" Liste & des "Demnächst" Boards
