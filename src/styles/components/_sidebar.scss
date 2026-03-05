@@ -1,11 +1,8 @@
-@use '/src/styles/variables/colors' as *;
+@use '/src/styles/styles_all' as *;
 .sidebar {
   background-color: $sidebar-color;
 
   .sidebar_nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    @include d-flex($flexdir: column, $jc: flex-start, $alit: flex-start);
   }
 }

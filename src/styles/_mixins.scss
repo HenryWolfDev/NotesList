@@ -1,0 +1,16 @@
+@mixin d-flex(
+  $jc: center,
+  $alit: center,
+  $flexdir: column,
+  $gap: 0,
+  $rgap: 0,
+  $cgap: 0
+) {
+  display: flex;
+  flex-direction: $flexdir;
+  justify-content: $jc;
+  align-items: $alit;
+  gap: $gap;
+  row-gap: $rgap;
+  column-gap: $cgap;
+}
