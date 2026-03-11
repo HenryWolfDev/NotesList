@@ -1,8 +1,16 @@
 import { Today } from '../views/Today';
+import { Add_Task_Modal } from '../UI/Add_Task_Modal';
 export class ViewManager {
   private containerId: string = 'content-area';
 
   renderView(viewName: string) {
+    // 1. Logik für Modals (KEIN Leeren des Containers!)
+    if (viewName === 'search-modal' || viewName === 'add-task-modal') {
+      this.openModal(viewName);
+      return; // Funktion hier beenden, damit die View im Hintergrund bleibt
+    }
+
+    // 2. Logik für Views
     const container = document.getElementById(this.containerId);
     if (!container) return;
 
@@ -20,16 +28,14 @@ export class ViewManager {
       case 'inbox':
         // new Inbox().init(this.containerId);
         break;
-
-      case 'add-task-modal':
-        // new Inbox().init(this.containerId);
-        break;
-
-      case 'search':
-        // new Inbox().init(this.containerId);
-        break;
       default:
         console.error(`View ${viewName} nicht gefunden`);
+    }
+  }
+
+  private openModal(modalName: string) {
+    if (modalName === 'add-task-modal') {
+      new Add_Task_Modal().open();
     }
   }
 }

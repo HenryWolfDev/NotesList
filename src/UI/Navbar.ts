@@ -24,7 +24,7 @@ export class Navbar {
           </svg>
           <span>Add task</span>
         </button>
-        <button data-view="search" class="nav-btn">
+        <button data-view="search-modal" class="nav-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"
