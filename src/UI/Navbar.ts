@@ -10,7 +10,7 @@ export class Navbar {
     const nav = document.createElement('nav');
 
     nav.innerHTML = `
-        <button data-view="add-task-modal" class="nav-btn add-task">
+        <button data-view="add-task-modal" class="btn add-task-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"
@@ -24,7 +24,7 @@ export class Navbar {
           </svg>
           <span>Add task</span>
         </button>
-        <button data-view="search-modal" class="nav-btn">
+        <button data-view="search-modal" class="btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"
@@ -48,7 +48,7 @@ export class Navbar {
           </svg>
           <span>Search</span>
         </button>
-        <button data-view="inbox" class="nav-btn">
+        <button data-view="inbox" class="btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"
@@ -72,7 +72,7 @@ export class Navbar {
           </svg>
           <span>Inbox</span>
         </button>
-        <button data-view="today" class="nav-btn">
+        <button data-view="today" class="btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"
@@ -120,7 +120,7 @@ export class Navbar {
           </svg>
           <span>Today</span>
         </button>
-        <button data-view="upcoming" class="nav-btn">
+        <button data-view="upcoming" class="btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"

@@ -2,7 +2,7 @@ import { Temporal } from 'temporal-polyfill';
 
 export type PriorityLevel = 1 | 2 | 3 | 4;
 
-export interface ITaskComment {
+interface ITaskComment {
   id: string;
   text: string;
   timestamp?: string;

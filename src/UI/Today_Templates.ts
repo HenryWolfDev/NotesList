@@ -9,7 +9,7 @@ export function getTodayTemplate() {
   <span>tasks</span>
   </div>
   <div id="add-task-container">
-    <button id="add-task-btn-today" class="add-task">
+    <button id="add-task-btn-today" class="add-task-btn">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/></svg>
     <span>Add task</span>
     </button>
@@ -19,7 +19,7 @@ export function getTodayTemplate() {
 
 export function getDefaultAddTaskContainer() {
   return `
-    <button id="add-task-btn-today" class="add-task">
+    <button id="add-task-btn-today" class="add-task-btn">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/></svg>
     <span>Add task</span>
     </button>

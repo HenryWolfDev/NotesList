@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   border-style: none;
+  list-style: none;
 }
 
 html {
@@ -13,24 +14,10 @@ html {
   color: $font-color-default;
   letter-spacing: 0.1rem;
 }
+
+// #region Global Styles
 .hidden {
   display: none;
-}
-
-#modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.add-task-modal-content {
-  display: block;
-  width: auto;
-  height: auto;
-  background-color: antiquewhite;
 }
 
 .icon {
@@ -39,16 +26,141 @@ html {
   color: $icon-check-default;
 }
 
-.nav-btn {
+.btn {
   @include nav-btn();
 }
-.add-task {
+
+.add-task-btn {
   @include add-task-btn();
   font-weight: 600;
   .icon {
     color: $icon-color-active;
   }
 }
+
+// #endregion Global Styles
+
+// #region Modal Views
+#modal-container {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+
+  &:not(.hidden) {
+    @include d-flex($flexdir: column, $jc: center, $alit: center);
+  }
+}
+
+.add-task-modal-content {
+  @include d-flex($flexdir: column, $jc: flex-start, $alit: flex-start);
+  width: auto;
+  height: auto;
+  border-radius: 0.25rem;
+  background-color: $modal-bg-color;
+  box-shadow: 0px 14px 23px 3px #b4b4b4;
+
+  .add-task-modal-input-bar {
+    padding: 1rem 1.5rem;
+    @include d-flex($flexdir: column, $jc: flex-start, $alit: flex-start);
+    gap: 2rem;
+  }
+
+  .add-task-modal-settings-bar {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    @include d-flex($flexdir: row, $jc: flex-start, $alit: center);
+    gap: 1rem;
+
+    button {
+      width: auto;
+      padding: 1rem;
+      background-color: white;
+      border: 0.1rem solid $button-hover;
+      border-radius: 0.25rem;
+      color: $font-color-dark-grey;
+    }
+
+    .priority-dropdown {
+      position: relative; // Wichtig für die Positionierung des Menüs
+      display: inline-block;
+
+      .prio-menu {
+        position: absolute;
+        top: 100%; // Erscheint direkt unter dem Button
+        left: -10%;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        min-width: 15rem;
+
+        &.show {
+          display: block; // Wird per JS aktiviert
+        }
+
+        li {
+          padding: 10px 15px;
+          font-size: 1.8rem;
+          cursor: pointer;
+          &:hover {
+            background: $button-hover;
+          }
+
+          // Farben für die Flaggen
+          .red {
+            color: red;
+          }
+          .orange {
+            color: orange;
+          }
+          .blue {
+            color: blue;
+          }
+          .grey {
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+
+  .add-task-modal-action-bar {
+    width: 100%;
+    @include d-flex($flexdir: row, $jc: space-around, $alit: center);
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-top: 0.1rem solid $button-hover;
+
+    button {
+      background-color: $button-bg-color;
+
+      &:nth-of-type(1) {
+        &:hover {
+          background-color: $button-hover;
+        }
+      }
+
+      &:nth-of-type(2) {
+        background-color: $button-close;
+        color: whitesmoke;
+
+        .icon {
+          color: whitesmoke;
+        }
+      }
+    }
+  }
+
+  input {
+    font-size: 2.8rem;
+    &:nth-of-type(2) {
+      font-size: 1.8rem;
+    }
+  }
+}
+// #endregion Modal Views
 
 .add-task-container-today {
   width: 35rem;

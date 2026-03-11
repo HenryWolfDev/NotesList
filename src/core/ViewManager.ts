@@ -4,10 +4,10 @@ export class ViewManager {
   private containerId: string = 'content-area';
 
   renderView(viewName: string) {
-    // 1. Logik für Modals (KEIN Leeren des Containers!)
+    // 1. Logik für Modals
     if (viewName === 'search-modal' || viewName === 'add-task-modal') {
       this.openModal(viewName);
-      return; // Funktion hier beenden, damit die View im Hintergrund bleibt
+      return;
     }
 
     // 2. Logik für Views
