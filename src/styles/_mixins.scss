@@ -33,15 +33,20 @@
   cursor: pointer;
   transition: background-color 0.3s;
   &:hover {
-    background-color: $button-hover; // Deine Hover-Styles
+    background-color: $button-hover;
     color: $font-color-default;
   }
   &:active {
-    background-color: $button-active; // Deine Hover-Styles
+    background-color: $button-active;
   }
 }
 
 @mixin add-task-btn {
   color: $icon-color-active;
+  background-color: $button-bg-color;
+  cursor: pointer;
+  &:hover {
+    color: $icon-color-active;
+  }
 }
 // #endregion Btns

@@ -1,15 +1,12 @@
 import './style.scss';
 import { Task } from './core/Task.js';
+import { Today } from './views/Today.js';
 
-const App = () => {
-  const main = document.getElementById('app');
+// const main = document.getElementById('app');
 
-  main!.innerHTML = `
-  
-  `;
-};
+const todayView = new Today();
 
-App();
+todayView.renderUI('app');
 
 const testTAsk = new Task('test');
 
