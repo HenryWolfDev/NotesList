@@ -1,5 +1,5 @@
+@use '/src/styles/colors' as *;
 // #region Layout Mixins
-
 @mixin d-flex(
   $jc: center,
   $alit: center,
@@ -19,4 +19,29 @@
 // #endregion Layout Mixins
 
 // #region Btns
+
+@mixin nav-btn {
+  max-width: 20rem;
+  width: 100%;
+  @include d-flex($flexdir: row, $jc: center, $alit: center);
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem;
+  background-color: $button-bg-color;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: $button-hover; // Deine Hover-Styles
+    color: $font-color-default;
+  }
+  &:active {
+    background-color: $button-active; // Deine Hover-Styles
+  }
+}
+
+@mixin add-task-btn {
+  color: $icon-color-active;
+}
 // #endregion Btns

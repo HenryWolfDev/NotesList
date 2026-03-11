@@ -1,22 +1,11 @@
 import './style.scss';
 import { Task } from './core/Task.js';
-import { getNavigationTemplate } from './UI/Navigation.js';
 
 const App = () => {
   const main = document.getElementById('app');
 
   main!.innerHTML = `
-   <aside class="sidebar">
-      <div class="sidebar_header">NotesList</div>
-      <nav class="sidebar_nav">
-      </nav>
-      <div class="sidebar__projects">
-        <h3>Projekte</h3>
-        <ul id="project-list"></ul>
-      </div>
-    </aside>
-    <section id="main-content">
-    </section>
+  
   `;
 };
 

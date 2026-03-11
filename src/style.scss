@@ -1,13 +1,48 @@
-@use 'styles/colors';
-@use 'styles/layout';
-@use 'styles/components/sidebar';
+@use '/src/styles/styles_all' as *;
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  border-style: none;
 }
 
 html {
   font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+  color: $font-color-default;
+  letter-spacing: 0.1rem;
+}
+.nav-icon {
+  width: 3rem;
+  height: 3rem;
+  color: $icon-check-default;
+}
+
+.nav-btn {
+  @include nav-btn();
+}
+.add-task-btn {
+  @include add-task-btn();
+  font-weight: 600;
+  .nav-icon {
+    color: $icon-color-active;
+  }
+}
+
+header {
+  background-color: $navigation-color;
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  @include d-flex($flexdir: column, $jc: center, $alit: center);
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+
+  nav {
+    width: 100%;
+    @include d-flex($flexdir: row, $jc: space-around, $alit: center);
+  }
 }
