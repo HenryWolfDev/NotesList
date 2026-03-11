@@ -15,7 +15,7 @@ const createBtn = (
 });
 
 // FINAL EXPORT
-export const SIDEBAR_BUTTONS: SidebarButtonProps[] = [
+export const SIDEBAR_BUTTONS = [
   createBtn('Add task', 'icon-home', 'MODAL_ADD_TASK'),
   createBtn('Inbox', 'icon-home', 'VIEW_Inbox'),
   createBtn('Today', 'icon-calendar', 'VIEW_TODAY'),

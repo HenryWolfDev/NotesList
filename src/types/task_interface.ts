@@ -1,16 +1,18 @@
+import { Temporal } from 'temporal-polyfill';
+
 export type PriorityLevel = 1 | 2 | 3 | 4;
 
-export interface TaskComment {
+export interface ITaskComment {
   id: string;
   text: string;
-  timestamp: Date;
+  timestamp?: string;
 }
 
-export interface Task {
+export interface ITask {
   id: string; // Eindeutige UUID
   title: string; // Pflichpfeld
   description?: string; // Optionaler Detailtext
-  dueDate: Date | string;
+  dueDate: Temporal.PlainDate | undefined;
   priority?: PriorityLevel; // 1 (Rot) bis 4 (Grau)
   isCompleted: boolean;
 
@@ -20,9 +22,9 @@ export interface Task {
 
   // Rekursion
   parentID?: string;
-  subtasks?: Task[];
+  subtasks?: ITask[];
 
   // Metadaten
-  comments?: TaskComment[];
-  createdAt: Date;
+  comments?: ITaskComment[];
+  createdAt: Temporal.PlainDateTime;
 }
