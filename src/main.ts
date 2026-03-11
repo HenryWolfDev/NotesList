@@ -1,5 +1,6 @@
 import './style.scss';
 import { Task } from './core/Task.js';
+import { getNavigationTemplate } from './UI/Navigation.js';
 
 const App = () => {
   const main = document.getElementById('app');

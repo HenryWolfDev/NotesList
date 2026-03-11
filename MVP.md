@@ -1,6 +1,6 @@
 # MVP: Advanced Todo List App
 
-## Task Modell und Modal
+## Task und Project Modell und Modal
 
 Das Task-Objekt, ist die Zentrale Dateneinheit, das komplexe Strukturen und Metadaten enthält.
 
@@ -29,7 +29,7 @@ Das Task-Objekt, ist die Zentrale Dateneinheit, das komplexe Strukturen und Meta
 
 ---
 
-## Sidebar (Navigation)
+## Navigation
 
 Sidebar dient als Zugriff auf verschiedene Ansichten.
 
@@ -37,30 +37,20 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
 
 - Buttons für "Aufgabe hinzufügen" und "Suche" (Öffnen Modals)
 
-### Standard-Ansichten:
+### Dashboard-Ansichten:
 
-- Eingang:
-  - Alle Tasks ohne spezifisches Projekt
-- Heute:
+- Inbox:
+  - Alle Tasks
+- Today:
   - Zeigt Titel "Heute", aktuelles Datum und die Anzahl der fälligen Tasks.
-- Demnächst:
+- Upcoming:
   - 4-Tage Boardansicht
-
-### Projekt-Sektion:
-
-- Aus und Einklappbares Menü.
-- Plus-Icon öffnet das "Projekt hinzufügen" -Modal
-- Standard-Projekte:
-  - Privates, Bildung, Arbeit
-- Anzeige:
-  - Jedes Projekt zeigt:
-    - Raute (in Projektfarbe), Name, Icon (Vordefiniert), Task-Count an.
 
 ---
 
 ## Dashboard-Ansichten (Views ohne Modal)
 
-### Aufgaben Heute
+### Today
 
 - Liste aller Tasks, deren Datum der aktuelle Tag ist
 - Tasks werden minimmal dargestellt:
@@ -72,7 +62,7 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
   - Klick auf Task öffnet das große Task-Modal
     (mit Beschreibung, Unteraufgaben, Kommentaren usw. siehe Task-Modal)
 
-### Aufgaben Demnächst (Board-Ansicht)
+### Upcoming (Board-Ansicht)
 
 - Zeitraum:
   - Heute bis + 4 Tage
@@ -83,16 +73,6 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
     - Jede Spalte hat einen Button zum schnellen Hinzufügen eines Tasks
       für genau diesen Tag
 
-### Projekt-Ansicht
-
-- Anzeige aller projektspezifischen Aufgaben.
-- Strukturierung: Unterteilung in Abschnitte
-- Logik:
-  - Aufgaben ohne Abschnitt erscheinen ganz oben, danach folgen Abschnitte
-- Aktion:
-  - Button zum "Abschnitt hinzufügen" zur weiteren Strukturierung des Projekts.
-  - Jeder Abschnitt hat einen Button "Aufgabe hinzufügen" (öffnet Quick Add Modal)
-
 ---
 
 ## Interaktive Komponenten (Modals)
@@ -101,12 +81,6 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
 
 - Fokus auf Schnelligkeit
 - Eingaben: Titel (Pflicht), Beschreibung, Datum, Priorität, Kategorie/Projekt
-
-### Projekt-Modal (Projekt hinzufügen)
-
-- Eingaben: Name des Projekts
-- Auswahl einer Farbe für die Raute und eines Icons aus einem vordefinierten Set
-- Neues Projekt wird in der Siderbar angezeigt
 
 ### Such-Modal
 

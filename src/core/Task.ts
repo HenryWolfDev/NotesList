@@ -1,9 +1,5 @@
 import { Temporal } from 'temporal-polyfill';
-import type {
-  ITask,
-  PriorityLevel,
-  ITaskComment,
-} from '../types/task_interface.ts';
+import type { ITask, PriorityLevel } from '../types/task_interface.ts';
 import { Comment } from './Comment.ts';
 
 export class Task implements ITask {
