@@ -22,12 +22,19 @@ html {
 .nav-btn {
   @include nav-btn();
 }
-.add-task-btn {
+.add-task {
   @include add-task-btn();
   font-weight: 600;
   .icon {
     color: $icon-color-active;
   }
+}
+
+.add-task-container-today {
+  width: 35rem;
+  border: 0.1rem solid black;
+  @include d-flex($flexdir: column, $jc: flex-start, $alit: flex-start);
+  gap: 2rem;
 }
 
 header {

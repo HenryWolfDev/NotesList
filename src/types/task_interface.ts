@@ -16,10 +16,6 @@ export interface ITask {
   priority?: PriorityLevel; // 1 (Rot) bis 4 (Grau)
   isCompleted: boolean;
 
-  // Zuordnung zu einem Projekt
-  projectID: string;
-  sectionID?: string;
-
   // Rekursion
   parentID?: string;
   subtasks?: ITask[];

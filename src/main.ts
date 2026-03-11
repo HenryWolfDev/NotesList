@@ -1,17 +1,12 @@
 import './style.scss';
-import { Task } from './core/Task.js';
-import { Today } from './views/Today.js';
+import { ViewManager } from './core/ViewManager.js';
+import { Navbar } from './UI/Navbar.js';
 
-// const main = document.getElementById('app');
+const viewManager = new ViewManager();
+const navbar = new Navbar(viewManager);
 
-const todayView = new Today();
+// Navbar in den Header hängen
+document.getElementById('header-container')?.appendChild(navbar.render());
 
-todayView.renderUI('app');
-
-const testTAsk = new Task('test');
-
-console.log(testTAsk);
-console.log(testTAsk.createdAt.toLocaleString());
-console.log(testTAsk.addComment('test test'));
-console.log(testTAsk.addComment('test test 3'));
-console.log(testTAsk.comments);
+// Initial-View laden
+viewManager.renderView('today');

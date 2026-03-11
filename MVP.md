@@ -31,7 +31,7 @@ Das Task-Objekt, ist die Zentrale Dateneinheit, das komplexe Strukturen und Meta
 
 ## Navigation
 
-Sidebar dient als Zugriff auf verschiedene Ansichten.
+Dient als Zugriff auf verschiedene Ansichten.
 
 ### Aktionen:
 
@@ -80,8 +80,8 @@ Sidebar dient als Zugriff auf verschiedene Ansichten.
 ### Quick-Add Modal (Aufgabe hinzufügen)
 
 - Fokus auf Schnelligkeit
-- Eingaben: Titel (Pflicht), Beschreibung, Datum, Priorität, Kategorie/Projekt
+- Eingaben: Titel (Pflicht), Beschreibung, Datum, Priorität
 
 ### Such-Modal
 
-- Echtzeit-Suche über alle Tasks (Titel) und Projektnamen
+- Echtzeit-Suche über alle Tasks (Titel)

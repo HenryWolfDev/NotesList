@@ -42,8 +42,12 @@
 }
 
 @mixin add-task-btn {
+  @include d-flex($flexdir: row, $jc: center, $alit: center);
+  gap: 1rem;
   color: $icon-color-active;
   background-color: $button-bg-color;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
   cursor: pointer;
   &:hover {
     color: $icon-color-active;
