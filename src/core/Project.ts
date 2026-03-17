@@ -5,6 +5,7 @@ export class Project implements IProject {
   title: string;
   description?: string;
   sections = [];
+  tasks = [];
 
   constructor(title: string) {
     this.title = title;

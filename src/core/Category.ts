@@ -1,6 +1,6 @@
 import type { ICategory } from '../types/_category';
 
-export class Project implements ICategory {
+export class Cateory implements ICategory {
   id: string = crypto.randomUUID();
   title: string;
   projects = [];
