@@ -1,10 +1,10 @@
-import type { ISection } from '../types/_section';
+import type { IProject } from '../types/_project';
 
-export class Section implements ISection {
+export class Project implements IProject {
   id: string = crypto.randomUUID();
   title: string;
-  description?: string | undefined;
-  tasks = [];
+  description?: string;
+  sections = [];
 
   constructor(title: string) {
     this.title = title;
