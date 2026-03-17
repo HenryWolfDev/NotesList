@@ -1,6 +1,5 @@
 import { Temporal } from 'temporal-polyfill';
 import type { ITask, PriorityLevel } from '../types/task_interface.ts';
-import { Comment } from './Comment.ts';
 
 export class Task implements ITask {
   id: string = crypto.randomUUID();
@@ -9,17 +8,9 @@ export class Task implements ITask {
   description?: string | undefined;
 
   dueDate: Temporal.PlainDate = Temporal.Now.plainDateISO();
-  createdAt: Temporal.PlainDateTime = Temporal.Now.plainDateTimeISO();
 
   priority: PriorityLevel = 4;
   isCompleted: boolean = false;
-
-  projectID: string = 'Inbox';
-  sectionID?: undefined;
-  parentID?: undefined;
-
-  subtasks: Task[] = [];
-  comments: Comment[] = [];
 
   constructor(title: string) {
     this.title = title;
@@ -30,13 +21,7 @@ export class Task implements ITask {
   }
 
   // #region ADD FUNCTIONS
-  addSubtask(task: Task) {
-    this.subtasks.push(task);
-  }
 
-  addComment(text: string) {
-    this.comments.push(new Comment(text));
-  }
   // #endregion ADD FUNCTIONS
 
   // #region SET FUNCTIONS
