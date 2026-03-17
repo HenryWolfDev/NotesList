@@ -1,5 +1,5 @@
 import { Temporal } from 'temporal-polyfill';
-import type { ITask, PriorityLevel } from '../types/task_interface.ts';
+import type { ITask, PriorityLevel } from '../types/_task.ts';
 
 export class Task implements ITask {
   id: string = crypto.randomUUID();
