@@ -3,10 +3,10 @@ import { Temporal } from 'temporal-polyfill';
 export type PriorityLevel = 1 | 2 | 3 | 4;
 
 export interface ITask {
-  id: string; // Eindeutige UUID
-  title: string; // Pflichpfeld
-  description?: string; // Optionaler Detailtext
+  id: string; // UUID
+  title: string;
+  description?: string;
   dueDate: Temporal.PlainDate | undefined;
-  priority?: PriorityLevel; // 1 (Rot) bis 4 (Grau)
+  priority?: PriorityLevel;
   isCompleted: boolean;
 }
