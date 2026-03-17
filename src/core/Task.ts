@@ -16,21 +16,6 @@ export class Task implements ITask {
     this.title = title;
   }
 
-  toggleCompleted(): void {
-    this.isCompleted = !this.isCompleted;
-  }
-
-  // #region ADD FUNCTIONS
-
-  // #endregion ADD FUNCTIONS
-
-  // #region SET FUNCTIONS
-  setPriority(newPrio: PriorityLevel): void {
-    this.priority = newPrio;
-  }
-  // #endregion
-
-  // #region UPDATE FUNCTIONS
   updateTitle(newTitle: string): void {
     this.title = newTitle;
   }
@@ -39,5 +24,13 @@ export class Task implements ITask {
   }
   updatePriority(newPriority: PriorityLevel): void {
     this.priority = newPriority;
+  }
+
+  toggleCompleted(): void {
+    this.isCompleted = !this.isCompleted;
+  }
+
+  setPriority(newPrio: PriorityLevel): void {
+    this.priority = newPrio;
   }
 }
