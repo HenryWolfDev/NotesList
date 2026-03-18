@@ -1,9 +1,10 @@
 import type { ICategory } from '../types/_category';
+import type { Project } from './Project';
 
-export class Cateory implements ICategory {
+export class Category implements ICategory {
   id: string = crypto.randomUUID();
   title: string;
-  projects = [];
+  projects: Project[] = [];
 
   constructor(title: string) {
     this.title = title;

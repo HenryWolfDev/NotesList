@@ -1,10 +1,11 @@
 import type { ISection } from '../types/_section';
+import type { Task } from './Task';
 
 export class Section implements ISection {
   id: string = crypto.randomUUID();
   title: string;
   description?: string | undefined;
-  tasks = [];
+  tasks: Task[] = [];
 
   constructor(title: string) {
     this.title = title;

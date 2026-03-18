@@ -1,18 +1,20 @@
-import type { Cateory } from '../core/Category';
+import type { Category } from '../core/Category';
 import type { Project } from '../core/Project';
 import type { Section } from '../core/Section';
 import type { Task } from '../core/Task';
 
-type UUID = string;
+export type UUID = string;
 
 export interface IStore {
-  category: Cateory[];
+  categorys: Category[];
   unassignedTasks: Task[];
 
-  createCategory: (category: Cateory) => Cateory;
-  createProject: (project: Project) => Project;
-  createSection: (section: Section) => Section;
-  createTask: (task: Task) => Task;
+  createCategory: (title: string) => Category;
+  createProject: (title: string, categoryID: UUID) => Project;
+  createSection: (title: string, projectID: UUID) => Section;
+  createUnassignedTask: (title: string) => Task;
+  createProjectTask: (title: string, projectID: UUID) => Task;
+  createSectionTask: (title: string, projectID: UUID, sectionID: UUID) => Task;
 
   removeCategory: (categoryID: UUID) => boolean;
   removeProject: (projectID: UUID) => boolean;
