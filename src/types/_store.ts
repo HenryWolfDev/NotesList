@@ -12,15 +12,23 @@ export interface IStore {
   createCategory: (title: string) => Category;
   createProject: (title: string, categoryID: UUID) => Project;
   createSection: (title: string, projectID: UUID) => Section;
+
   createUnassignedTask: (title: string) => Task;
   createProjectTask: (title: string, projectID: UUID) => Task;
   createSectionTask: (title: string, projectID: UUID, sectionID: UUID) => Task;
 
   removeCategory: (categoryID: UUID) => boolean;
   removeProject: (projectID: UUID) => boolean;
-  removeSection: (sectionID: UUID) => boolean;
-  removeTask: (taskID: UUID) => boolean;
+  removeSection: (projectID: UUID, sectionID: UUID) => boolean;
+
+  removeUnassignedTask: (taskID: UUID) => boolean;
+  removeProjectTask: (projectID: UUID, taskID: UUID) => boolean;
+  removeSectionTask: (rojectID: UUID, sectionID: UUID, taskID: UUID) => boolean;
 
   assignUnassignedTaskToProject: (taskID: UUID, projectID: UUID) => boolean;
-  assignTaskToSection: (taskID: UUID, sectionID: UUID) => boolean;
+  assignProjectTaskToSection: (
+    taskID: UUID,
+    projectID: UUID,
+    sectionID: UUID,
+  ) => boolean;
 }
