@@ -4,9 +4,19 @@ import { Project } from './Project';
 import { Section } from './Section';
 import { Task } from './Task';
 
-export class Store implements IStore {
+class Store implements IStore {
+  private static instance: Store;
   categorys: Category[] = [];
   unassignedTasks: Task[] = [];
+
+  private constructor() {}
+
+  public static getInstance(): Store {
+    if (!Store.instance) {
+      Store.instance = new Store();
+    }
+    return Store.instance;
+  }
 
   createCategory(title: string): Category {
     const newCategory = new Category(title);
@@ -199,3 +209,5 @@ export class Store implements IStore {
     return foundSection;
   }
 }
+
+export const storeDB = Store.getInstance();
