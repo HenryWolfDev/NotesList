@@ -3,9 +3,9 @@ import { createDefaultData } from './data/defaultData';
 import { storeDB } from './core/Store';
 import { ViewManager } from './core/ViewManager';
 import { Navbar } from './UI/Navbar';
+
 export class App {
   private default_data_key = 'defaultData_active';
-
   private viewManager = new ViewManager();
   private navbar = new Navbar(this.viewManager);
 

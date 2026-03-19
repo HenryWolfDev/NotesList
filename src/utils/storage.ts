@@ -1,11 +1,8 @@
+import type { StorageData } from '../types/_storageData';
 import { Category } from '../core/Category';
 import { Task } from '../core/Task';
 
 const storageKey = 'noteslist_store';
-interface StorageData {
-  categorys: Category[];
-  unassignedTasks: Task[];
-}
 
 export const saveToStorage = (data: StorageData): void => {
   localStorage.setItem(storageKey, JSON.stringify(data));
