@@ -16,5 +16,8 @@ export const loadFromStorage = (): StorageData | null => {
   if (!raw) return null;
 
   const data = JSON.parse(raw);
-  return data as StorageData;
+  return {
+    categorys: data.categorys.map(Category.fromJSON),
+    unassignedTasks: data.unassignedTasks.map(Task.fromJSON),
+  };
 };
