@@ -3,6 +3,7 @@ import { Category } from './Category';
 import { Project } from './Project';
 import { Section } from './Section';
 import { Task } from './Task';
+import { saveToStorage } from '../utils/storage';
 
 class Store implements IStore {
   private static instance: Store;
@@ -21,6 +22,7 @@ class Store implements IStore {
   createCategory(title: string): Category {
     const newCategory = new Category(title);
     this.categorys.push(newCategory);
+    this.save();
     return newCategory;
   }
 
@@ -28,6 +30,7 @@ class Store implements IStore {
     let foundCategory = this.findCategory(categoryID);
     const newProject = new Project(title);
     foundCategory.projects.push(newProject);
+    this.save();
     return newProject;
   }
 
@@ -35,12 +38,14 @@ class Store implements IStore {
     let foundProject = this.findProject(projectID);
     const newSection = new Section(title);
     foundProject.sections.push(newSection);
+    this.save();
     return newSection;
   }
 
   createUnassignedTask(title: string): Task {
     const newTask = new Task(title);
     this.unassignedTasks.push(newTask);
+    this.save();
     return newTask;
   }
 
@@ -48,6 +53,7 @@ class Store implements IStore {
     let foundProject = this.findProject(projectID);
     const newTask = new Task(title);
     foundProject.tasks.push(newTask);
+    this.save();
     return newTask;
   }
 
@@ -55,6 +61,7 @@ class Store implements IStore {
     let foundSection = this.findSection(projectID, sectionID);
     const newTask = new Task(title);
     foundSection.tasks.push(newTask);
+    this.save();
     return newTask;
   }
 
@@ -66,6 +73,7 @@ class Store implements IStore {
       this.categorys = newArray;
       isRemoved = true;
     }
+    this.save();
     return isRemoved;
   }
   removeProject(projectID: UUID): boolean {
@@ -78,7 +86,7 @@ class Store implements IStore {
         isRemoved = true;
       }
     }
-
+    this.save();
     return isRemoved;
   }
   removeSection(projectID: UUID, sectionID: UUID): boolean {
@@ -92,7 +100,7 @@ class Store implements IStore {
       foundProject.sections = newProjectList;
       isRemoved = true;
     }
-
+    this.save();
     return isRemoved;
   }
   removeUnassignedTask(taskID: UUID): boolean {
@@ -103,6 +111,7 @@ class Store implements IStore {
       this.unassignedTasks = newTasksList;
       isRemoved = true;
     }
+    this.save();
     return isRemoved;
   }
 
@@ -117,6 +126,7 @@ class Store implements IStore {
       foundProject.tasks = newProjectTasksList;
       isRemoved = true;
     }
+    this.save();
     return isRemoved;
   }
 
@@ -131,6 +141,7 @@ class Store implements IStore {
       foundSection.tasks = newSectionList;
       isRemoved = true;
     }
+    this.save();
     return isRemoved;
   }
 
@@ -144,7 +155,7 @@ class Store implements IStore {
 
     const newUnassignedTasksList = this.unassignedTasks.filter(task => task.id !== taskID);
     this.unassignedTasks = newUnassignedTasksList;
-
+    this.save();
     return true;
   }
 
@@ -157,6 +168,7 @@ class Store implements IStore {
 
     const projectTaskIsRemoved = this.removeProjectTask(projectID, taskID);
     if (!projectTaskIsRemoved) throw new Error('Project-Task not removed.');
+    this.save();
     return true;
   }
 
@@ -175,6 +187,7 @@ class Store implements IStore {
       }
     }
     if (!foundProject) throw new Error('Project not found.');
+    this.save();
     return foundProject;
   }
 
@@ -182,7 +195,12 @@ class Store implements IStore {
     const foundProject = this.findProject(projectID);
     const foundSection = foundProject.sections.find(section => section.id === sectionID);
     if (!foundSection) throw new Error('Section not found.');
+    this.save();
     return foundSection;
+  }
+
+  private save(): void {
+    saveToStorage({ categorys: this.categorys, unassignedTasks: this.unassignedTasks });
   }
 }
 
