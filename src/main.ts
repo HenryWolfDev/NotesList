@@ -1,6 +1,7 @@
 import './style.scss';
 import { ViewManager } from './core/ViewManager.js';
 import { Navbar } from './UI/Navbar.js';
+import { createDefaultData } from './data/defaultData.js';
 
 const viewManager = new ViewManager();
 const navbar = new Navbar(viewManager);
