@@ -60,9 +60,7 @@ class Store implements IStore {
 
   removeCategory(categoryID: UUID): boolean {
     let isRemoved = false;
-    const newArray = this.categorys.filter(
-      category => category.id !== categoryID,
-    );
+    const newArray = this.categorys.filter(category => category.id !== categoryID);
 
     if (newArray.length < this.categorys.length) {
       this.categorys = newArray;
@@ -73,9 +71,7 @@ class Store implements IStore {
   removeProject(projectID: UUID): boolean {
     let isRemoved = false;
     for (const catg of this.categorys) {
-      const newArray = catg.projects.filter(
-        project => project.id !== projectID,
-      );
+      const newArray = catg.projects.filter(project => project.id !== projectID);
 
       if (newArray.length !== catg.projects.length) {
         catg.projects = newArray;
@@ -90,9 +86,7 @@ class Store implements IStore {
 
     const foundProject = this.findProject(projectID);
 
-    const newProjectList = foundProject.sections.filter(
-      section => section.id !== sectionID,
-    );
+    const newProjectList = foundProject.sections.filter(section => section.id !== sectionID);
 
     if (foundProject.sections.length !== newProjectList.length) {
       foundProject.sections = newProjectList;
@@ -103,9 +97,7 @@ class Store implements IStore {
   }
   removeUnassignedTask(taskID: UUID): boolean {
     let isRemoved = false;
-    const newTasksList = this.unassignedTasks.filter(
-      task => task.id !== taskID,
-    );
+    const newTasksList = this.unassignedTasks.filter(task => task.id !== taskID);
 
     if (newTasksList.length < this.unassignedTasks.length) {
       this.unassignedTasks = newTasksList;
@@ -119,9 +111,7 @@ class Store implements IStore {
 
     const foundProject = this.findProject(projectID);
 
-    const newProjectTasksList = foundProject.tasks.filter(
-      task => task.id !== taskID,
-    );
+    const newProjectTasksList = foundProject.tasks.filter(task => task.id !== taskID);
 
     if (newProjectTasksList.length !== foundProject.tasks.length) {
       foundProject.tasks = newProjectTasksList;
@@ -135,9 +125,7 @@ class Store implements IStore {
 
     const foundSection = this.findSection(projectID, sectionID);
 
-    const newSectionList = foundSection.tasks.filter(
-      task => task.id !== taskID,
-    );
+    const newSectionList = foundSection.tasks.filter(task => task.id !== taskID);
 
     if (newSectionList.length !== foundSection.tasks.length) {
       foundSection.tasks = newSectionList;
@@ -154,22 +142,14 @@ class Store implements IStore {
     const foundProject = this.findProject(projectID);
     foundProject.tasks.push(unassignedTask);
 
-    const newUnassignedTasksList = this.unassignedTasks.filter(
-      task => task.id !== taskID,
-    );
+    const newUnassignedTasksList = this.unassignedTasks.filter(task => task.id !== taskID);
     this.unassignedTasks = newUnassignedTasksList;
 
     return true;
   }
 
-  assignProjectTaskToSection(
-    taskID: string,
-    projectID: UUID,
-    sectionID: string,
-  ): boolean {
-    const projectTask = this.findProject(projectID).tasks.find(
-      task => task.id === taskID,
-    );
+  assignProjectTaskToSection(taskID: string, projectID: UUID, sectionID: string): boolean {
+    const projectTask = this.findProject(projectID).tasks.find(task => task.id === taskID);
     if (!projectTask) throw new Error('Task not found.');
 
     const foundSection = this.findSection(projectID, sectionID);
@@ -181,9 +161,7 @@ class Store implements IStore {
   }
 
   private findCategory(categoryID: string): Category {
-    const foundCategory = this.categorys.find(
-      category => category.id === categoryID,
-    );
+    const foundCategory = this.categorys.find(category => category.id === categoryID);
     if (!foundCategory) throw new Error('Category not found.');
     return foundCategory;
   }
@@ -202,9 +180,7 @@ class Store implements IStore {
 
   private findSection(projectID: UUID, sectionID: UUID): Section {
     const foundProject = this.findProject(projectID);
-    const foundSection = foundProject.sections.find(
-      section => section.id === sectionID,
-    );
+    const foundSection = foundProject.sections.find(section => section.id === sectionID);
     if (!foundSection) throw new Error('Section not found.');
     return foundSection;
   }
