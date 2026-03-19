@@ -37,3 +37,9 @@ Interfaces als Typen-Grundlage für Klassen
 Store als Singleton - eine einzige Instanz für das gesamte Projekt
 
 - [x] Vollständige CRUD-Operationen für alle Ebenen
+
+**Settings**
+
+- [] sprache
+- [] dark mode
+- [] app zurücksetzen

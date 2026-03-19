@@ -201,7 +201,6 @@ class Store implements IStore {
       }
     }
     if (!foundProject) throw new Error('Project not found.');
-    this.save();
     return foundProject;
   }
 
@@ -209,7 +208,6 @@ class Store implements IStore {
     const foundProject = this.findProject(projectID);
     const foundSection = foundProject.sections.find(section => section.id === sectionID);
     if (!foundSection) throw new Error('Section not found.');
-    this.save();
     return foundSection;
   }
 

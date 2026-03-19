@@ -10,7 +10,7 @@ Eine hochfunktionale, rekursive To-Do App basierend auf den Anforderungen des [T
 
 ## 🚀 MVP
 
-Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsaufgaben durch:
+Das Ziel von **NotesList** ist die Verwaltung von Alltagsaufgaben durch:
 
 - **Intelligentes Dashboard:** Dynamische Filter für "Heute", "Eingang" und eine 4-Tage "Demnächst"-Boardansicht.
 - **Projekt-Architektur:** Gruppierung von Aufgaben in Kategorien -> Projekte -> Tasks --> Sections -> Tasks.
