@@ -33,4 +33,19 @@ export class Task implements ITask {
   setPriority(newPrio: PriorityLevel): void {
     this.priority = newPrio;
   }
+
+  static fromJSON(data: ITask): Task {
+    const newTask = new Task(data.title);
+    newTask.id = data.id;
+    newTask.isCompleted = data.isCompleted;
+    newTask.priority = data.priority;
+    if (data.description) {
+      newTask.description = data.description;
+    }
+    if (data.dueDate) {
+      newTask.dueDate = Temporal.PlainDate.from(data.dueDate);
+    }
+
+    return newTask;
+  }
 }
