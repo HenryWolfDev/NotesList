@@ -6,8 +6,7 @@
 
 **Projekt Struktur:**
 
-- [x] Ordner für Variablen, Mixins und Komponenten anlegen (SCSS)
-- [x] Allgemeine Ordner-Strutkur anlegen (styles, types, usw.)
+- [x] Ordner anlegen (Assets, Core, Data, Styles, Types, UI, Utils, Views)
 
 **Layout:**
 
@@ -15,20 +14,26 @@
 - [x] mixin hinzufügen für display-flex
 - [x] Color variables definieren
 
----
-
-**Components**
-
-## SIDEBAR BTN
-
-- [ ] Interface / Types
-- [ ] Style scss
-- [ ] HTML
-
-## Daten Logik
-
 **Interfaces**
 
-- [x] Task
-- [ ] Project
-- [x] Commment
+Interfaces als Typen-Grundlage für Klassen
+
+- [x] category
+- [x] project
+- [x] section
+- [x] task
+- [x] store
+
+**Classes**
+
+- [x] category
+- [x] project
+- [x] section
+- [x] task
+- [x] store
+
+**State Management**
+
+Store als Singleton - eine einzige Instanz für das gesamte Projekt
+
+- [x] Vollständige CRUD-Operationen für alle Ebenen

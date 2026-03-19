@@ -19,6 +19,8 @@ class Store implements IStore {
     return Store.instance;
   }
 
+  // #region Create Methods
+
   createCategory(title: string): Category {
     const newCategory = new Category(title);
     this.categorys.push(newCategory);
@@ -65,6 +67,10 @@ class Store implements IStore {
     return newTask;
   }
 
+  // #endregion Create Methods
+
+  // #region Remove Methods
+
   removeCategory(categoryID: UUID): boolean {
     let isRemoved = false;
     const newArray = this.categorys.filter(category => category.id !== categoryID);
@@ -76,6 +82,7 @@ class Store implements IStore {
     this.save();
     return isRemoved;
   }
+
   removeProject(projectID: UUID): boolean {
     let isRemoved = false;
     for (const catg of this.categorys) {
@@ -89,6 +96,7 @@ class Store implements IStore {
     this.save();
     return isRemoved;
   }
+
   removeSection(projectID: UUID, sectionID: UUID): boolean {
     let isRemoved = false;
 
@@ -103,6 +111,7 @@ class Store implements IStore {
     this.save();
     return isRemoved;
   }
+
   removeUnassignedTask(taskID: UUID): boolean {
     let isRemoved = false;
     const newTasksList = this.unassignedTasks.filter(task => task.id !== taskID);
@@ -145,6 +154,8 @@ class Store implements IStore {
     return isRemoved;
   }
 
+  // #endregion Remove Methods
+
   assignUnassignedTaskToProject(taskID: string, projectID: string): boolean {
     let unassignedTask = this.unassignedTasks.find(task => task.id === taskID);
 
@@ -172,11 +183,14 @@ class Store implements IStore {
     return true;
   }
 
+  // #region Private Methods
+
   private findCategory(categoryID: string): Category {
     const foundCategory = this.categorys.find(category => category.id === categoryID);
     if (!foundCategory) throw new Error('Category not found.');
     return foundCategory;
   }
+
   private findProject(projectID: string): Project {
     let foundProject;
     for (const catg of this.categorys) {
@@ -202,6 +216,8 @@ class Store implements IStore {
   private save(): void {
     saveToStorage({ categorys: this.categorys, unassignedTasks: this.unassignedTasks });
   }
+
+  // #endregion Private Methods
 }
 
 export const storeDB = Store.getInstance();

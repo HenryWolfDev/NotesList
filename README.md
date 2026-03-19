@@ -10,13 +10,12 @@ Eine hochfunktionale, rekursive To-Do App basierend auf den Anforderungen des [T
 
 ## 🚀 MVP
 
-Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsstrukturen durch:
+Das Ziel von **NotesList** ist die Verwaltung komplexer Alltagsaufgaben durch:
 
-- **Rekursives Task-Modell:** Aufgaben können unendlich tief verschachtelte Unteraufgaben enthalten, wobei jede Unteraufgabe ein vollwertiges Task-Objekt mit eigenen Metadaten ist.
 - **Intelligentes Dashboard:** Dynamische Filter für "Heute", "Eingang" und eine 4-Tage "Demnächst"-Boardansicht.
-- **Projekt-Architektur:** Gruppierung von Aufgaben in Projekten, die wiederum in Abschnitte (Sections) unterteilt werden können.
-- **Meta-Daten:** Unterstützung für Prioritäten (1-4), detaillierte Beschreibungen und Kommentarsystem mit Zeitstempeln.
-- **Persistenz:** Vollständige Speicherung der verschachtelten Datenstruktur im
+- **Projekt-Architektur:** Gruppierung von Aufgaben in Kategorien -> Projekte -> Tasks --> Sections -> Tasks.
+- **Meta-Daten:** Unterstützung für Prioritäten (1-4), mit detaillierte Beschreibungen und Zeitstempeln.
+- **Persistenz:** Vollständige Speicherung der verschachtelten Datenstruktur im LocalStorage.
 
 ## 💻 Installation & Start
 
