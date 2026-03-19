@@ -7,6 +7,7 @@ import { Navbar } from './UI/Navbar';
 export class App {
   private default_data_key = 'defaultData_active';
   private header_id_key = 'header-container';
+  private inital_view_key = 'today';
 
   private viewManager = new ViewManager();
   private navbar = new Navbar(this.viewManager);
@@ -37,6 +38,6 @@ export class App {
   }
 
   loadInitialView(): void {
-    this.viewManager.renderView('today');
+    this.viewManager.renderView(this.inital_view_key);
   }
 }

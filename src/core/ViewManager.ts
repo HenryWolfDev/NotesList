@@ -1,11 +1,20 @@
 import { Today } from '../views/Today';
 import { Add_Task_Modal } from '../UI/Add_Task_Modal';
+
+export const Views = {
+  HOME: 'home',
+  TODAY: 'today',
+  UPCOMING: 'upcoming',
+  ADD_TASK_MODAL: 'add-task-modal',
+  SEARCH_MODAL: 'search-modal',
+} as const;
+
 export class ViewManager {
-  private containerId: string = 'content-area';
+  private containerId: string = 'content-view';
 
   renderView(viewName: string) {
     // 1. Logik für Modals
-    if (viewName === 'search-modal' || viewName === 'add-task-modal') {
+    if (viewName === Views.SEARCH_MODAL || viewName === Views.ADD_TASK_MODAL) {
       this.openModal(viewName);
       return;
     }
@@ -19,13 +28,13 @@ export class ViewManager {
 
     // 2. Entscheidung, welche View geladen wird
     switch (viewName) {
-      case 'today':
+      case Views.TODAY:
         new Today().init(this.containerId);
         break;
-      case 'upcoming':
+      case Views.UPCOMING:
         // new Upcoming().init(this.containerId);
         break;
-      case 'inbox':
+      case Views.HOME:
         // new Inbox().init(this.containerId);
         break;
       default:
@@ -34,7 +43,7 @@ export class ViewManager {
   }
 
   private openModal(modalName: string) {
-    if (modalName === 'add-task-modal') {
+    if (modalName === Views.ADD_TASK_MODAL) {
       new Add_Task_Modal().open();
     }
   }
