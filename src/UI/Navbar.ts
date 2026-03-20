@@ -20,12 +20,9 @@ export class Navbar {
       // closest wandert den Baum hoch, bis es das Element mit dem data-view findet.
       const button = (e.target as HTMLElement).closest(`[${this.data_attribute_key}]`);
       if (!button) return;
-
       const viewName = button.getAttribute(this.data_attribute_key);
-      console.log(viewName);
       if (viewName) {
         this.viewManager.renderView(viewName);
-        // this.setActiveButton(button as HTMLElement);   // Optional: Hier könntest du eine CSS-Klasse "active" verwalten
       }
     });
   }
