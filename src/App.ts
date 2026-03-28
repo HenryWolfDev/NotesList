@@ -3,9 +3,9 @@ import { createDefaultData } from './data/defaultData';
 import { storeDB } from './core/Store';
 import { ViewManager } from './core/ViewManager';
 import { Navbar } from './UI/Navbar';
+import { default_data_key } from './constants/storagekeys';
 
 export class App {
-  private default_data_key = 'defaultData_active';
   private header_id_key = 'header-container';
   private inital_view_key = 'today';
 
@@ -19,11 +19,11 @@ export class App {
   }
 
   loadStorage(): void {
-    const default_data_active = localStorage.getItem(this.default_data_key);
+    const default_data_active = localStorage.getItem(default_data_key);
 
     if (!default_data_active) {
       createDefaultData();
-      localStorage.setItem(this.default_data_key, 'true');
+      localStorage.setItem(default_data_key, 'true');
     } else {
       const storageData = loadFromStorage();
       if (storageData) {
