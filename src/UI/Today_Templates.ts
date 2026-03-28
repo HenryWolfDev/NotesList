@@ -1,5 +1,7 @@
 import { Temporal } from 'temporal-polyfill';
-export function getTodayTemplate() {
+import type { Task } from '../core/Task';
+
+export function sectionTemplate() {
   return `
   <h1>Today</h1>
   <span>${Temporal.Now.plainDateISO().toLocaleString()}</span>
@@ -14,6 +16,23 @@ export function getTodayTemplate() {
     <span>Add task</span>
     </button>
   </div>
+  <div class="unassignedTasks-list-today">
+    <h2>Unassigned Tasks</h2>
+  </div>
+  <div class="project-tasks-list-today">
+    <h2>Project Tasks</h2>
+  </div>
+  `;
+}
+
+export function taskCard(task: Task) {
+  return `
+    <div class="task-card-today-head">
+      <h4>${task.title}</h4>
+      <span>${task.priority}</span>
+    </div>
+    <p>${task.description}</p>
+    <span>${task.dueDate}</span>
   `;
 }
 
