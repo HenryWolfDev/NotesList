@@ -1,48 +1,97 @@
 # MVP: Advanced Todo List App
 
-## Task und Project Modell und Modal
+Ein Nutzer soll tägliche Aufgaben, einzelne Projekte und Tasks anlegen und verwalten können.
+Verschiedene Ansichten sollen dabei helfen eine einfacherere Übersicht zu haben und Aufgaben
+dynamisch abschließen zu können. Man soll jederzeit wissen auf welchen stand ein projekt ist,
+was noch getan werden muss, was allgemein für die nächsten Tage ansteht, was routine aufgaben sind
+und wann sich diese wiederholen.
+Der Nutzer soll dabei freiheiten haben, sich seine projekte und Aufgaben selbst zusammenzustellen,
+zu gliedern und zu verwalten.
 
-Das Task-Objekt, ist die Zentrale Dateneinheit, das komplexe Strukturen und Metadaten enthält.
+## Datenmodelle
 
 ### Eigenschaften eines Tasks:
 
+Ein Task kann entweder einem Projekt angehören , einer Section (Abschnitt) innerhalb eines Projekts
+oder offen sein und weder einem Projekt noch Section angehören.
+
 - Titel:
-  - Header der Aufgabe (Pflichtfeld)
+  - Name der Aufgabe (Pflichtfeld)
 - Beschreibung:
-  - Detaillierter Text direkt unter dem Titel
-- Unteraufgaben:
-  - Liste von Tasks, die wiederum eigene Unteraufgaben und Kommentare haben können
-    (Rekursion unbegrenzt)
-  - Jede Unteraufgabe ist also auch ein Task und somit ein Task-Objekt
-    (mit eigener Task-Ansicht per klick darauf)
-- Rekursion:
-  - Falls Task eine unteraufgabe ist, wird die Hauptaufgabe als klickbarer Reiter angezeigt,
-    um einfach den Ursprung herzuleiten
-- Kommentare:
-  - Liste von Anmerkungen mit automatischer Anzeige von Datum und Uhrzeit
+  - Detaillierter Text zum Task (optional)
 - Priorität:
   - Stufen (1-4) Visualisiert durch Flaggen-Icons in unterschiedlichen Farben
+  - Standard: Stufe 4 (niedrigste)
 - Datum:
   - Fälligkeitsdatum, jederzeit aktualisierbar
-- Projekt-Zuordnung:
-  - Jeder Task gehört zu einem Projekt (Standard: Eingang)
+- Abgeschlossen:
+  - Kann abgeschlossen werden per klick
+- Projekt-Zurordnung:
+  - Tasks können allgemein zum Projekt angehören
+  - Listet alle Tasks dazu auf
+- Section-Zuordnung:
+  - Tasks können Sections im Projekt angehören
+  - Section listet alle Tasks in ihrem Abschnitt auf
+
+### Eigenschaften einer Section:
+
+Eine Section ist immer ein Abschnitt innerhalb eines Projekts.
+
+- Titel
+  - Name der Section (Pflichtfeld)
+- Beschreibung
+  - Beschreibung der Section (optional)
+- Tasks
+  - Liste aller Tasks für diese Section
+
+### Eigenschaften eines Projekts:
+
+Ein Projekt gehört immer einer Kategorie an.
+
+- Titel
+  - Name des Projekts
+- Beschreibung
+  - Beschreibung des Projekts (optional)
+- Sections
+  - Kann ich Abschnitte unterteilt werden
+  - Listet alle Sections auf
+- Tasks
+  - Liste aller Tasks die keiner Section angehören
+
+### Eigenschaften einer Kategorie:
+
+Eine Kategorie ist die Oberste Ebene.
+Projekte werden in Kategorien unterteilt.
+
+Beispiel:
+Kategorie: Personal -> Projekte: Sport
+Kategorie: Education -> Projekte: TypeScript
+Kategorie: Job -> Projekte: Portfolio
+
+- Titel
+  - Name der Kategorie
+- Projekte
+  - Listet alle Projekte die dieser Kategorie angehören
 
 ---
 
 ## Navigation
 
-Dient als Zugriff auf verschiedene Ansichten.
+### Navbar:
 
-### Aktionen:
-
-- Buttons für "Aufgabe hinzufügen" und "Suche" (Öffnen Modals)
+- "Aufgabe hinzufügen" öffnet Modal
+  - Schnelles hinzufügen eines Tasks
+- "Suche" öffnet Modal
+- "Home" öffnet Ansicht
+- "Today" öffnet Ansicht
+  -- Zeigt Titel "Heute", aktuelles Datum und die Anzahl der fälligen Tasks.
+- "Upcoming" öffnet Ansicht
 
 ### Dashboard-Ansichten:
 
 - Inbox:
   - Alle Tasks
 - Today:
-  - Zeigt Titel "Heute", aktuelles Datum und die Anzahl der fälligen Tasks.
 - Upcoming:
   - 4-Tage Boardansicht
 

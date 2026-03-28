@@ -18,7 +18,7 @@ export class Add_Task_Modal {
 
   private createModalButton(icon: string, label: string, id?: string): string {
     return `
-    <button id="${id ?? ''}" class="btn">
+    <button ${id ? `id="${id}"` : ''} class="btn">
     ${icon}
     <span>${label}</span>
     </button>
