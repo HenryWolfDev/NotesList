@@ -16,6 +16,28 @@ html {
 }
 
 // #region Global Styles
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p,
+span {
+  font-size: 1.6rem;
+}
+
 .hidden {
   display: none;
 }
@@ -162,6 +184,8 @@ html {
 }
 // #endregion Modal Views
 
+// #region TODAY-VIEW
+
 .add-task-container-today {
   width: 35rem;
   border: 0.1rem solid black;
@@ -169,12 +193,86 @@ html {
   gap: 2rem;
 }
 
+.tasks-lists {
+  @include d-flex($flexdir: row, $jc: space-around, $alit: flex-start);
+
+  .unassignedTasks-list-today,
+  .project-tasks-list-today {
+    @include d-flex($flexdir: column, $jc: flex-start, $alit: center);
+    gap: 2rem;
+
+    .tasks-list-title {
+      @include d-flex($flexdir: row, $jc: flex-start, $alit: center);
+      gap: 2rem;
+    }
+    .tasks-list-open-tasks {
+      @include d-flex($flexdir: row, $jc: flex-start, $alit: center);
+      gap: 0.5rem;
+    }
+  }
+
+  .project-card-today {
+    @include d-flex($flexdir: column, $jc: flex-start, $alit: flex-start);
+    gap: 1rem;
+  }
+
+  .task-card-today {
+    width: 30rem;
+    height: 15rem;
+    border: 0.1rem solid #c5c5c5;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    @include d-flex($flexdir: column, $jc: space-between, $alit: flex-start);
+    gap: 1rem;
+
+    .task-card-today-desc {
+      color: $font-color-dark-grey;
+    }
+    .task-card-today-head {
+      width: 100%;
+      @include d-flex($flexdir: row, $jc: flex-start, $alit: center);
+      gap: 1rem;
+
+      .toggle-task-today-btn {
+        @include d-flex($flexdir: row, $jc: center, $alit: center);
+        background-color: rgb(255, 255, 255);
+
+        cursor: pointer;
+
+        .icon {
+          color: $icon-check-active;
+        }
+
+        &:hover {
+          .toggle-icon-default {
+            display: none;
+          }
+          .toggle-icon-complete {
+            display: block;
+            color: $icon-check-active;
+          }
+        }
+      }
+    }
+    .task-card-today-bottom {
+      width: 100%;
+      @include d-flex($flexdir: row, $jc: space-between, $alit: center);
+
+      .task-card-today-date {
+        @include d-flex($flexdir: row, $jc: flex-start, $alit: center);
+        gap: 0.5rem;
+        color: $icon-color-active;
+        .icon {
+          color: $icon-color-active;
+        }
+      }
+    }
+  }
+}
+// #endregion TODAY-VIEW
+
 header {
   background-color: $navigation-color;
-
-  h1 {
-    font-size: 2.5rem;
-  }
 
   @include d-flex($flexdir: column, $jc: center, $alit: center);
   gap: 1rem;
