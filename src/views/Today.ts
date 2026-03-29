@@ -36,7 +36,6 @@ export class Today {
 
     const unassignedTasksList = this.section.querySelector('.unassignedTasks-list-today');
     const projectTasksList = this.section.querySelector('.project-tasks-list-today');
-
     if (unassignedTasksList) {
       this.renderUnassignedTasks(unassignedTasksList);
     }
@@ -51,11 +50,8 @@ export class Today {
 
   private renderUnassignedTasks(unassignedTasksList: Element) {
     this.tasks.unassignedTasks.forEach(task => {
-      const div = document.createElement('div');
-      div.innerHTML = taskCard(task);
-      const firstChild = div.firstElementChild;
-      if (firstChild && unassignedTasksList) {
-        unassignedTasksList.appendChild(firstChild);
+      if (unassignedTasksList) {
+        unassignedTasksList.appendChild(taskCard(task));
       }
     });
   }
@@ -71,15 +67,10 @@ export class Today {
       div?.appendChild(titleDiv);
 
       projectTask.tasks.forEach(task => {
-        const divCard = document.createElement('div');
-        divCard.classList.add('task-card-today');
-        divCard.innerHTML = taskCard(task);
-        div?.appendChild(divCard);
+        if (projectTasksList) {
+          projectTasksList.appendChild(taskCard(task));
+        }
       });
-
-      if (projectTasksList) {
-        projectTasksList.append(div);
-      }
     });
   }
 

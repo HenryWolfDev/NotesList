@@ -41,12 +41,14 @@ export function sectionTemplate() {
 }
 
 export function taskCard(task: Task) {
-  return `
+  const card = document.createElement('div');
+  card.innerHTML = `
+  <div data-task-id="${task.id}" class="task-card-today">
     <div class="task-card-today-head">
       <button class="toggle-task-today-btn">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon toggle-icon-default" viewBox="0 0 512 512"><circle cx="256" cy="256" r="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" class="icon toggle-icon-complete hidden" viewBox="0 0 512 512"><path d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z" fill="currentColor" stroke="currentColor"/></svg>
-        </button>
+      </button>
       <h4>${task.title}</h4> 
     </div>
     <p class="task-card-today-desc">${task.description ?? 'No description'}</p>
@@ -57,7 +59,9 @@ export function taskCard(task: Task) {
         <span>${task.dueDate}</span>
       </div>
     </div>
+  </div> 
   `;
+  return card;
 }
 
 export function getDefaultAddTaskContainer() {
