@@ -69,6 +69,45 @@ class Store implements IStore {
 
   // #endregion Create Methods
 
+  toggleTask(taskID: string): boolean {
+    let isToggled = false;
+    toggleFoundTask(this.unassignedTasks, taskID);
+
+    for (const catg of this.categorys) {
+      if (isToggled) {
+        break;
+      }
+      for (const project of catg.projects) {
+        if (isToggled) {
+          break;
+        }
+        toggleFoundTask(project.tasks, taskID);
+        if (!isToggled) {
+          for (const section of project.sections) {
+            if (isToggled) {
+              break;
+            }
+            toggleFoundTask(section.tasks, taskID);
+          }
+        }
+      }
+    }
+
+    function toggleFoundTask(tasks: Task[], taskID: string) {
+      const foundTask = tasks.find(task => task.id === taskID);
+      if (foundTask) {
+        foundTask.toggleCompleted();
+        isToggled = true;
+      }
+    }
+
+    if (isToggled) {
+      this.save();
+    }
+
+    return isToggled;
+  }
+
   // #region Remove Methods
 
   removeCategory(categoryID: UUID): boolean {
@@ -156,6 +195,7 @@ class Store implements IStore {
 
   // #endregion Remove Methods
 
+  // #region Assign Methods
   assignUnassignedTaskToProject(taskID: string, projectID: string): boolean {
     let unassignedTask = this.unassignedTasks.find(task => task.id === taskID);
 
@@ -182,6 +222,7 @@ class Store implements IStore {
     this.save();
     return true;
   }
+  // #endregion Assign Methods
 
   // #region Private Methods
 
