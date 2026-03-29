@@ -1,5 +1,4 @@
 import { sectionTemplate, taskCard, getAddTaskTodayTemplate, getDefaultAddTaskContainer } from '../UI/Today_Templates';
-import type { Task } from '../core/Task';
 import { getAllFilteredTasksForToday } from '../core/TaskService';
 
 export class Today {
@@ -9,7 +8,6 @@ export class Today {
 
   init(containerID: string) {
     this.renderUI(containerID);
-
     this.addTaskContainer();
   }
 
@@ -29,7 +27,6 @@ export class Today {
   }
 
   renderUI(containerID: string) {
-    console.log(this.tasks.projectTasks);
     const container = document.getElementById(containerID);
     if (!container) return;
     container.innerHTML = '';
@@ -47,8 +44,11 @@ export class Today {
       this.renderProjectTasks(projectTasksList);
     }
 
+    this.renderTotalNumberofTasks();
+
     container.appendChild(this.section);
   }
+
   private renderUnassignedTasks(unassignedTasksList: Element) {
     this.tasks.unassignedTasks.forEach(task => {
       const div = document.createElement('div');
@@ -59,6 +59,7 @@ export class Today {
       }
     });
   }
+
   private renderProjectTasks(projectTasksList: Element) {
     this.tasks.projectTasks.forEach(projectTask => {
       const div = document.createElement('div');
@@ -80,5 +81,30 @@ export class Today {
         projectTasksList.append(div);
       }
     });
+  }
+
+  private renderTotalNumberofTasks() {
+    const openTasksProjects = this.section.querySelector('.open-tasks-project-tasks');
+    const openTasksUnassigned = this.section.querySelector('.open-tasks-unassigned');
+
+    if (openTasksProjects) {
+      openTasksProjects.textContent = this.getTotalNumberOfTasks('projectTasks');
+    }
+    if (openTasksUnassigned) {
+      openTasksUnassigned.textContent = this.getTotalNumberOfTasks('unassignedTasks');
+    }
+  }
+
+  private getTotalNumberOfTasks(tasksListName: string): string {
+    let listNumber = '0';
+    if (tasksListName === 'unassignedTasks') {
+      listNumber = String(this.tasks.unassignedTasks.length);
+    }
+    if (tasksListName === 'projectTasks') {
+      const numbers = this.tasks.projectTasks.reduce((current, projectTask) => current + projectTask.tasks.length, 0);
+      listNumber = String(numbers);
+    }
+
+    return listNumber;
   }
 }

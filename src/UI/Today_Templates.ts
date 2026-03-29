@@ -19,10 +19,10 @@ export function sectionTemplate() {
     <div class="unassignedTasks-list-today">
       <div class="tasks-list-title">
         <h2>Unassigned Tasks</h2>
-        <div>
+        <div class="tasks-list-open-tasks">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352 176L217.6 336 160 272"/></svg>
-          <span>0</span>
-          <span>tasks</span>
+          <span class="open-tasks-unassigned">0</span>
+          <span>open tasks</span>
         </div>
       </div>
     </div>
@@ -31,8 +31,8 @@ export function sectionTemplate() {
         <h2>Project Tasks</h2>
         <div class="tasks-list-open-tasks">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352 176L217.6 336 160 272"/></svg>
-          <span>0</span>
-          <span>tasks</span>
+          <span class="open-tasks-project-tasks">0</span>
+          <span>open tasks</span>
         </div>
       </div>  
     </div>
