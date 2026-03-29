@@ -1,5 +1,6 @@
 import { Temporal } from 'temporal-polyfill';
 import type { Task } from '../core/Task';
+import { priorityColors } from '../constants/priorities';
 
 export function sectionTemplate() {
   return `
@@ -29,9 +30,11 @@ export function taskCard(task: Task) {
   return `
     <div class="task-card-today-head">
       <h4>${task.title}</h4>
-      <span>${task.priority}</span>
+      <div>
+      <svg style="color: ${priorityColors[task.priority]}" xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path d="M80 464V68.14a8 8 0 014-6.9C91.81 56.66 112.92 48 160 48c64 0 145 48 192 48a199.53 199.53 0 0077.23-15.77 2 2 0 012.77 1.85v219.36a4 4 0 01-2.39 3.65C421.37 308.7 392.33 320 352 320c-48 0-128-32-192-32s-80 16-80 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/></svg>
+      </div>
     </div>
-    <p>${task.description}</p>
+    <p>${task.description ?? ''}</p>
     <span>${task.dueDate}</span>
   `;
 }

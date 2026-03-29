@@ -62,13 +62,16 @@ export class Today {
   private renderProjectTasks(projectTasksList: Element) {
     this.tasks.projectTasks.forEach(projectTask => {
       const div = document.createElement('div');
+      div.classList.add('project-card-today');
 
       const titleDiv = document.createElement('h3');
+      titleDiv.classList.add('project-title-today');
       titleDiv.innerHTML = projectTask.project.title;
       div?.appendChild(titleDiv);
 
       projectTask.tasks.forEach(task => {
         const divCard = document.createElement('div');
+        divCard.classList.add('task-card-today');
         divCard.innerHTML = taskCard(task);
         div?.appendChild(divCard);
       });
