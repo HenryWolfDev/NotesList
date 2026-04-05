@@ -42,8 +42,10 @@ export function sectionTemplate() {
 
 export function taskCard(task: Task) {
   const card = document.createElement('div');
+  card.dataset.taskId = task.id;
+  card.classList.add('task-card-today');
+
   card.innerHTML = `
-  <div data-task-id="${task.id}" class="task-card-today">
     <div class="task-card-today-head">
       <button class="toggle-task-today-btn">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon toggle-icon-default" viewBox="0 0 512 512"><circle cx="256" cy="256" r="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
@@ -59,7 +61,6 @@ export function taskCard(task: Task) {
         <span>${task.dueDate}</span>
       </div>
     </div>
-  </div> 
   `;
   return card;
 }

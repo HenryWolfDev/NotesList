@@ -61,6 +61,14 @@ span {
   }
 }
 
+.task-done {
+  color: $icon-color-default;
+  background-color: rgba(223, 223, 223, 0.5);
+
+  text-decoration: line-through;
+  box-shadow: none;
+}
+
 // #endregion Global Styles
 
 // #region Modal Views
@@ -239,7 +247,7 @@ span {
 
       .toggle-task-today-btn {
         @include d-flex($flexdir: row, $jc: center, $alit: center);
-        background-color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0);
 
         cursor: pointer;
 

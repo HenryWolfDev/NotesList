@@ -1,5 +1,6 @@
 import { sectionTemplate, taskCard, getAddTaskTodayTemplate, getDefaultAddTaskContainer } from '../UI/Today_Templates';
 import { getAllFilteredTasksForToday } from '../core/TaskService';
+import { storeDB } from '../core/Store';
 
 export class Today {
   section: HTMLElement = document.createElement('section');
@@ -51,7 +52,13 @@ export class Today {
   private renderUnassignedTasks(unassignedTasksList: Element) {
     this.tasks.unassignedTasks.forEach(task => {
       if (unassignedTasksList) {
-        unassignedTasksList.appendChild(taskCard(task));
+        const card = taskCard(task);
+        unassignedTasksList.appendChild(card);
+
+        //TODO Hier später noch methode wie in renderProjectsTasks hinzufügen
+        card.addEventListener('click', () => {
+          console.log('test');
+        });
       }
     });
   }
@@ -68,7 +75,16 @@ export class Today {
 
       projectTask.tasks.forEach(task => {
         if (projectTasksList) {
-          projectTasksList.appendChild(taskCard(task));
+          const card = taskCard(task);
+
+          card.querySelector('.toggle-task-today-btn')?.addEventListener('click', () => {
+            storeDB.toggleTask(task.id);
+            card.classList.toggle('task-done');
+            this.tasks = getAllFilteredTasksForToday();
+            this.renderTotalNumberofTasks();
+          });
+
+          projectTasksList.appendChild(card);
         }
       });
     });
@@ -79,9 +95,11 @@ export class Today {
     const openTasksUnassigned = this.section.querySelector('.open-tasks-unassigned');
 
     if (openTasksProjects) {
+      openTasksProjects.innerHTML = '';
       openTasksProjects.textContent = this.getTotalNumberOfTasks('projectTasks');
     }
     if (openTasksUnassigned) {
+      openTasksUnassigned.innerHTML = '';
       openTasksUnassigned.textContent = this.getTotalNumberOfTasks('unassignedTasks');
     }
   }
@@ -89,10 +107,15 @@ export class Today {
   private getTotalNumberOfTasks(tasksListName: string): string {
     let listNumber = '0';
     if (tasksListName === 'unassignedTasks') {
-      listNumber = String(this.tasks.unassignedTasks.length);
+      const numbers = this.tasks.unassignedTasks.filter(task => !task.isCompleted);
+
+      listNumber = String(numbers.length);
     }
     if (tasksListName === 'projectTasks') {
-      const numbers = this.tasks.projectTasks.reduce((current, projectTask) => current + projectTask.tasks.length, 0);
+      const numbers = this.tasks.projectTasks.reduce((current, projectTask) => {
+        const allTasks = projectTask.tasks.filter(tasks => !tasks.isCompleted);
+        return current + allTasks.length;
+      }, 0);
       listNumber = String(numbers);
     }
 
